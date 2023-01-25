@@ -1,10 +1,12 @@
 #debug packages make no sense!
 %global debug_package %{nil}
+%global _build_id_links none
+%global __debug_package %{nil}
 #no stripping required either
 %global __os_install_post %{nil}
 
-%global snap_date       20220913
-%global commit_long     d146fb66aaf04ce776c1633e17545c6d4ff3777a
+%global snap_date       20230124
+%global commit_long     52cf38d0ae55a8b7426e55974292a920265b7927
 %global commit_short    %(c=%{commit_long}; echo ${c:0:7})
 %global fetch_url       https://raw.githubusercontent.com/raspberrypi/firmware
 
@@ -62,6 +64,9 @@ install -p * %{buildroot}/boot
 
 
 %changelog
+* Wed Jan 25 2023 Damian Wrobel <dwrobel@ertelnet.rybnik.pl> - 20230124-1.52cf38d
+- Sync to latest git commit: 52cf38d0ae55a8b7426e55974292a920265b7927
+
 * Tue Sep 13 2022 Damian Wrobel <dwrobel@ertelnet.rybnik.pl> - 20220913-1.d146fb6
 - Sync to latest git commit: d146fb66aaf04ce776c1633e17545c6d4ff3777a
 

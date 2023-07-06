@@ -12,7 +12,7 @@
 
 Name:          bcm283x-firmware
 Version:       %{snap_date}
-Release:       1.%{commit_short}%{?dist}
+Release:       2.%{commit_short}%{?dist}
 Summary:       Broadcom bcm283x firmware for the Raspberry Pi
 Group:         System Environment/Kernel
 License:       Redistributable, no modification permitted
@@ -54,6 +54,7 @@ cp -a %{sources} .
 
 
 %install
+rm -rf SPECPARTS .SPECPARTS
 mkdir -p %{buildroot}/boot
 install -p * %{buildroot}/boot
 
@@ -64,6 +65,9 @@ install -p * %{buildroot}/boot
 
 
 %changelog
+* Thu Jul 06 2023 Damian Wrobel <dwrobel@ertelnet.rybnik.pl> - 20230703-2.a994a29
+- Remove SPECPART directories created by rpm
+
 * Thu Jul 06 2023 Damian Wrobel <dwrobel@ertelnet.rybnik.pl> - 20230703-1.a994a29
 - Sync to latest git commit: a994a294cad0c4c7c921b7833903d1ea4f84ce6c
 
